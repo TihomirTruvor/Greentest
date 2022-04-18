@@ -64,8 +64,6 @@ p {
 	height: 60px;
 	border: 0 none;
 	font-size: 16px;
-	padding-left: 60px;
-	padding-right: 60px;
 	-webkit-appearance: none;
 	font-weight: 700;
 	white-space: nowrap;
@@ -81,7 +79,7 @@ p {
 
 .button_back {
 	margin: 0 auto;
-	margin-top: 3rem;
+	margin-top: 6rem;
 	padding-top: 1.3rem;
 	width: 30%;
 	text-align: center;
@@ -102,16 +100,18 @@ p {
 }
 
 .dev-success {
-	font-size: 62px;
-	font-weight: 600;
-	color: rgba(155,196,20,0.8);
-	text-align: center;
+	margin-top: 6rem !important;
+	font-size: 62px !important;
+	font-weight: 600 !important;
+	color: rgba(155,196,20,0.8) !important;
+	text-align: center !important;
 }
 
 .dev-danger {
-	font-size: 62px;
-	font-weight: 600;
-	color: #ff3300;
-	text-align: center;
+	margin-top: 6rem !important;
+	font-size: 62px !important;
+	font-weight: 600 !important;
+	color: #ff3300 !important;
+	text-align: center !important;
 }
 
