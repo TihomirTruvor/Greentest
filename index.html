@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="verification.css">
+	<title>Device verification Greentest</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Device verification</h1>
+		<p>Enter the serial number of your Greentest device and make sure it's authentic!</p>
+		<form class="verification">
+			<input type="text" name="number" class="number" placeholder="Number: gsDCFAkN0">
+			<button class="button_confirm">Confirm</button>
+		</form>
+		<a href="#" class="button_back">Back to site</a>
+	</div>
+	<?php
+/*
+Greentest Verification
+*/
+$host = 'localhost';
+$database = '********'; // имя базы данных
+$user = '********'; // имя пользователя
+$password = '********'; // пароль
+$table = 'device***; // имя таблицы
+
+if( $_POST['number']){
+    $verivic_id = $_POST['number']; // присваиваем переменной verivic_id значение из поля input
+    
+
+    $link = mysqli_connect($host, $user, $password, $database) // подключаемся к БД
+        or die("ERROR " . mysqli_error($link));
+
+    $query = "SELECT * FROM $table WHERE id='$verivic_id'"; // выбираем из таблицы table поле значение которого равно переменной verivic_id
+
+    $result = mysqli_query($link, $query) or die("ERROR " . mysqli_error($link)); // подключаемся к БД с параметрами $link и $query
+ 
+    if($result->num_rows !== 0){ // если в переменной $result аргумент num_rows не равен 0, то..
+        $device = mysqli_fetch_array($result); // переменной $device присваиваем массив из $result
+        
+       echo '<p class="dev-success">The device is verified!</p>'; // выводим сообщение ОК
+        
+    } 
+    else{
+        echo '<p class="dev-danger">Device not found :-(</p> 
+        <p>Please check the entered serial number!</p>'; // выводим сообщение NO
+    }
+
+    mysqli_close($link); // закрываем открытое соединение
+};
+?>
+</body>
+</html>
